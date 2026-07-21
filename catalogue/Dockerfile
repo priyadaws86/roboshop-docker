@@ -10,7 +10,7 @@ WORKDIR /opt/server
 COPY --from=build /opt/server /opt/server
 EXPOSE 8080
 LABEL com.project="roboshop" \
-      component ="catalogue" \
+      component="catalogue" \
       created_by="priyadaws86" \
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue" 
