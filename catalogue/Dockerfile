@@ -11,7 +11,7 @@ COPY --from=build /opt/server /opt/server
 EXPOSE 8080
 LABEL com.project="roboshop" \
       component="catalogue" \
-      created_by="priyadaws86" \
+      created_by="priyadaws86"
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue" 
 RUN chown -R roboshop:roboshop /opt/server
