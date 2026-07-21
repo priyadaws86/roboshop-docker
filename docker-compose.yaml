@@ -37,8 +37,6 @@ services:
   
   user:
     build: ./user
-      context: 
-      dockerfile: Dockerfile
     image: priyadaws86/user:v1
     container_name: user
     depends_on:
