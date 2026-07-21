@@ -1,14 +1,14 @@
 services:
   mongodb:
-  build: ./mongodb
+    build: ./mongodb
     image: priyadaws86/mongodb:v1
     container_name: mongodb
     volumes:
       - mongodb:/data/db
 
   catalogue:
-    build: ./catalogue
-      context: 
+    build: 
+      context: ./catalogue
       dockerfile: Dockerfile
     image: priyadaws86/catalogue:v1
     container_name: catalogue
