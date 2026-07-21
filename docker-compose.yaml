@@ -1,11 +1,15 @@
 services:
   mongodb:
+  build: ./mongodb
     image: mongodb:v1
     container_name: mongodb
     volumes:
       - mongodb:/data/db
 
   catalogue:
+    build: ./catalogue
+      context: 
+      dockerfile: Dockerfile
     image: catalogue:v1
     container_name: catalogue
     depends_on:
@@ -16,6 +20,7 @@ services:
     volumes:
       - redis:/data
   mysql:
+    build: ./mysql
     image: mysql:v1
     container_name: mysql
     volumes:
@@ -31,12 +36,16 @@ services:
       - rabbitmq:/var/lib/rabbitmq
   
   user:
+    build: ./user
+      context: 
+      dockerfile: Dockerfile
     image: user:v1
     container_name: user
     depends_on:
       - mongodb
       - redis
   cart:
+    build: ./cart
     image: cart:v1
     container_name: cart
     depends_on:
@@ -44,6 +53,7 @@ services:
       - catalogue
   
   shipping:
+    build: ./shipping
     image: shipping:v1
     container_name: shipping
     depends_on:
@@ -51,6 +61,7 @@ services:
       - cart
   
   payment:
+    build: ./payment
     image: payment:v1
     container_name: payment
     depends_on:
@@ -59,6 +70,7 @@ services:
       - cart
   
   frontend:
+    build: ./frontend
     image: frontend:v1
     container_name: frontend
     ports:
